@@ -25,29 +25,33 @@ function ordr_pz($pizzatype, $fw)
     echo "Order finished.<br><br>";
 }
 
-
-function calc_cts($p_type)
-{
-    $cst = 'unknown';
-
-    if ($p_type == 'marguerita') {
-        $cst = 5;
-    } else if ($p_type == 'golden'){
-        $cst = 100;
-    }else if ($p_type == 'calzone'){
-                $cst = 10;
-    }else if ($p_type == 'hawai') {
-        throw new Exception('Computer says no');
-    }
-    return $cst;
-}
-
 function ordr_piz_all()
 {
     ordr_pz('calzone', 'nico');
     ordr_pz('marguerita', 'nick');
     ordr_pz('golden', 'students');
 }
+
+function calc_cts($p_type)
+{
+    $cst = 'unknown';
+
+    switch($p_type) {
+        case 'marguerita':
+            $cst = 5;
+            break;
+        case'golden':
+            $cst = 100;
+            break;
+        case'calzone':
+            $cst= 10;
+            break;
+        case'hawai':
+            throw new Exception('Computer says no');
+    }
+    return $cst;
+}
+
 
 function make_Allhappy($do_it)
 {
